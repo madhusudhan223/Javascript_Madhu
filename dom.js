@@ -16,12 +16,47 @@
 // console.log(document.querySelector("h1"))
 
 const element = document.getElementById('page-header');
-console.log(element.innerHTML)
+const image = document.createElement("img");
+image.setAttribute("src", "https://www.w3schools.com/js/pic_bulboff.gif")
+// console.log(image)
+element.appendChild(image);
+image.classList.add("image");
+
+// https://www.w3schools.com/js/pic_bulbon.gif
+
+
+
+// toggle ---> on/off
+
+// element.classList.add("test");
+// const newElement = document.createElement("a")
+// newElement.innerText = "My link"
+// newElement.setAttribute("href", "https://youtube.com")
+// element.appendChild(newElement)
+// console.log(newElement)
+// element
 
 const myFunction = () => {
-    element.innerHTML = '<span>Testing innerHTML</span><span>Test</span>'
+    // console.log(this.parent)
+    const imgSrc = document.getElementsByClassName("image");
+    console.log(imgSrc[0].parentElement);
+
+    // const bulbon = 'https://www.w3schools.com/js/pic_bulbon.gif';
+    // const buloff = 'https://www.w3schools.com/js/pic_bulboff.gif';
+
+    // if (imgSrc[0].src == bulbon ){
+    //     imgSrc[0].src = buloff;
+    // }else{
+    //     imgSrc[0].src = bulbon
+    // }
+
+    // imgSrc[0].src == bulbon ? imgSrc[0].src = buloff : imgSrc[0].src = bulbon
+
+    // imgSrc[0].src = "https://www.w3schools.com/js/pic_bulbon.gif";
+
 }
-element.addEventListener('click', myFunction);
+
+image.addEventListener("click", myFunction);
 
 // counter 
 // 2
