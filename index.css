@@ -7,10 +7,42 @@ body {
 .header-class {
     display: flex;
     justify-content: center;
+    background-color: gold;
 }
-.image{
+.button-class {
+    border-radius: 4px;
+    margin: 16px;
+    border: none;
+    padding: 8px;
+    background: lightgreen;
     cursor: pointer;
 }
-.test{
+ul{
+    list-style-type: none;
+}
+
+li{
+    width: max-content;
+    background: gray;
+    border-radius: 4px;
+    cursor: pointer;
+    /* box-shadow: 4px 4px #ecedeb; */
+    padding: 8px;
+    margin: 8px;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+
+}
+.button-class:hover{
+    background: lightseagreen;
+}
+
+.image {
+    cursor: pointer;
+}
+
+.test {
     color: aqua;
 }
