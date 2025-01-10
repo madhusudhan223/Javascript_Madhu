@@ -1,0 +1,63 @@
+body {
+  width: 100vh;
+  background-color: antiquewhite;
+}
+.todo-container {
+  display: flex;
+  justify-content: center;
+}
+.input-container {
+  display: flex;
+  justify-content: center;
+}
+.input-box {
+  outline: none;
+  width: 250px;
+  height: 28px;
+}
+.input-box::placeholder {
+  font-size: 14px;
+  padding-left: 14px;
+  /* color: ; */
+}
+.add-btn {
+  color: white;
+  background: green;
+  border: none;
+  padding: 8px;
+  width: 100px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.lists {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 100px;
+  width: 360px;
+}
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  background-color: cadetblue;
+  padding: 8px;
+  margin: 8px;
+}
+.deleteBtn {
+  background: brown;
+  color: white;
+  border: none;
+  padding: 8px;
+  width: 100px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.clearbtn {
+  margin-left: 6px;
+  color: white;
+  background: green;
+  border: none;
+  padding: 8px;
+  width: 100px;
+  border-radius: 4px;
+  cursor: pointer;
+}
