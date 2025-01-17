@@ -1,5 +1,4 @@
 body {
-  width: 100vh;
   background-color: antiquewhite;
 }
 .todo-container {
@@ -32,7 +31,7 @@ body {
 .lists {
   list-style-type: none;
   padding: 0;
-  margin-left: 100px;
+  margin: 24px auto;
   width: 360px;
 }
 .listItem {
