@@ -1,77 +1,57 @@
-
 const button = document.getElementById("add-btn");
 const inputBox = document.getElementById("input-box");
 const list = document.getElementById("list-box");
-const clearBtn = document.getElementById("clearBtn")
+const clearBtn = document.getElementById("clearBtn");
 
-const tasks = [];
+// Load existing tasks from localStorage
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 const deleteTask = (deleteId) => {
-    const tasks = JSON.parse(localStorage.getItem("tasks"));
-    const filteredArray = tasks.filter(item => item.id !== deleteId);
-    localStorage.setItem("tasks", JSON.stringify(filteredArray));
+    tasks = tasks.filter(task => task.id !== deleteId); 
+    localStorage.setItem("tasks", JSON.stringify(tasks)); 
+    displayTasks(); 
+};
 
-}
 const addTask = () => {
-    const listItem = document.createElement("li");
-    listItem.innerText = inputBox.value;
-    const obj = {
-        id: Date.now(),
-        textName: inputBox.value,
-    }
-     tasks.push(obj)
-    localStorage.setItem("tasks", JSON.stringify(tasks))
-    
+    const taskText = inputBox.value.trim(); 
+    if (taskText === "") return;
 
-    listItem.classList.add("listItem");
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    deleteBtn.classList.add("deleteBtn");
-    deleteBtn.onclick = () => {
-        list.removeChild(listItem);
-        deleteTask(obj.id)
-    }
-    listItem.appendChild(deleteBtn);
-    list.appendChild(listItem)
-    inputBox.value = "" ;
-}
+    const task = { id: Date.now(), textName: taskText };
+    tasks.push(task); 
+    localStorage.setItem("tasks", JSON.stringify(tasks)); 
 
-
-const handleClick = () => {
-    addTask();
-}
+    inputBox.value = ""; 
+    displayTasks(); 
+};
 
 const handleInput = (event) => {
-    if (event.key == "Enter") {
-        addTask();
-    }
-}
-const handleClearAll = () => {
-    list.innerHTML = ''
-}
+    if (event.key === "Enter") addTask();
+};
 
-function displayTasks(){
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    for(let task of tasks){
+const handleClearAll = () => {
+    tasks = []; 
+    localStorage.removeItem("tasks"); 
+    list.innerHTML = ""; 
+};
+
+function displayTasks() {
+    list.innerHTML = ""; 
+    tasks.forEach((task) => {
         const listItem = document.createElement("li");
         listItem.innerText = task.textName;
         listItem.classList.add("listItem");
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
         deleteBtn.classList.add("deleteBtn");
-        deleteBtn.onclick = () => {
-            list.removeChild(listItem);
-            deleteTask(task.id)
-        }
+        deleteBtn.onclick = () => deleteTask(task.id);
+
         listItem.appendChild(deleteBtn);
-        list.appendChild(listItem)
- }
-    
+        list.appendChild(listItem);
+    });
 }
 
-
+// Event Listeners
 inputBox.addEventListener("keydown", handleInput);
 clearBtn.addEventListener("click", handleClearAll);
-button.addEventListener("click", handleClick);
-
-window.onload = displayTasks
+button.addEventListener("click", addTask);
+window.onload = displayTasks; // Load tasks on page load

@@ -1,5 +1,6 @@
 body {
   background-color: antiquewhite;
+  height: 200vh;
 }
 .todo-container {
   display: flex;
