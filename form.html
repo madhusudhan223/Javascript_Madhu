@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Student Details Form</h2>
+        <form id="studentForm">
+    
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Enter first name">
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Enter last name">
+            </div>
+
+          
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="Male"> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                </div>
+            </div>
+
+                        <div class="form-group">
+                            <label>Select religion:</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="religion" value="Hindu"> Hindu</label>
+                                <label><input type="radio" name="religion" value="Muslim"> muslim</label>
+                            </div>
+                        </div>
+
+            <div class="form-group">
+                <label>Hobbies:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="hobbies" value="Sports"> Sports</label>
+                    <label><input type="checkbox" name="hobbies" value="Music"> Music</label>
+                    <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+
+</html>
